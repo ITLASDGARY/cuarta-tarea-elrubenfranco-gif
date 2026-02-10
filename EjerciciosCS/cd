@@ -22,10 +22,15 @@ namespace EjerciciosCS
         /// <returns>El promedio de las 5 temperaturas</returns>
         public double CalcularPromedioTemperatura()
         {
-            // TODO: Implementar el cálculo del promedio de temperaturas
-            double promedio = 0.0; 
-            
-            
+            double[] temperaturas = { 23.5, 24.0, 22.8, 25.1, 23.9 };
+    double suma = 0;
+
+    for (int i = 0; i < temperaturas.Length; i++)
+    {
+        suma += temperaturas[i];
+    }
+
+    double promedio = suma / temperaturas.Length;
             return promedio;
         }
 
@@ -43,9 +48,25 @@ namespace EjerciciosCS
         /// <returns>Una List<string> con los productos ingresados por el usuario</returns>
         public List<string> CrearListaCompras()
         {
-            // TODO: Implementar la lista de compras interactiva
             List<string> listaCompras = new List<string>();
-            
+
+    Console.WriteLine("Escribe productos (escribe 'salir' para terminar):");
+
+    while (true)
+    {
+        string producto = Console.ReadLine();
+
+        if (producto.ToLower() == "salir")
+            break;
+
+        listaCompras.Add(producto);
+    }
+
+    Console.WriteLine("Productos ingresados:");
+    foreach (string item in listaCompras)
+    {
+        Console.WriteLine(item);
+    }
 
             return listaCompras;
         }
@@ -68,10 +89,26 @@ namespace EjerciciosCS
         /// <returns>true si el número está en el array, false si no</returns>
         public bool BuscarNumeroDinamico(int numeroBuscado)
         {
-            // TODO: Implementar la búsqueda de número en array aleatorio
-            bool encontrado = false;
-            Random random = new Random();
-            
+           bool encontrado = false;
+    Random random = new Random();
+    int[] numeros = new int[10];
+
+    for (int i = 0; i < numeros.Length; i++)
+    {
+        numeros[i] = random.Next(0, 101);
+        Console.Write(numeros[i] + " ");
+    }
+
+    Console.WriteLine();
+
+    for (int i = 0; i < numeros.Length; i++)
+    {
+        if (numeros[i] == numeroBuscado)
+        {
+            encontrado = true;
+            break;
+        }
+    }
 
             return encontrado;
         }
